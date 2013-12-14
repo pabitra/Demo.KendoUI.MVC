@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.KendoUI", "Demo.KendoUI\Demo.KendoUI.csproj", "{9FD91940-A6C3-4DD9-AABB-0CEA7339CA1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.KendoUI.DataAccess", "EarlyTech.Demo.DataAccess\Demo.KendoUI.DataAccess.csproj", "{DD3F7A6A-A1BF-4D91-8BB6-87B74DFCECE9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9FD91940-A6C3-4DD9-AABB-0CEA7339CA1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FD91940-A6C3-4DD9-AABB-0CEA7339CA1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FD91940-A6C3-4DD9-AABB-0CEA7339CA1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FD91940-A6C3-4DD9-AABB-0CEA7339CA1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD3F7A6A-A1BF-4D91-8BB6-87B74DFCECE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD3F7A6A-A1BF-4D91-8BB6-87B74DFCECE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD3F7A6A-A1BF-4D91-8BB6-87B74DFCECE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD3F7A6A-A1BF-4D91-8BB6-87B74DFCECE9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,309 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div id="megaStore">
+    <ul id="header_menu">
+        <li>Products
+                    <ul>
+                        <li>Furniture
+                            <ul>
+                                <!-- moving the UL to the next line will cause an IE7 problem -->
+                                <li>Tables & Chairs</li>
+                                <li>Sofas</li>
+                                <li>Occasional Furniture</li>
+                                <li>Childerns Furniture</li>
+                                <li>Beds</li>
+                            </ul>
+
+
+                        </li>
+                        <li>Decor
+                            <ul>
+                                <!-- moving the UL to the next line will cause an IE7 problem -->
+                                <li>Bed Linen</li>
+                                <li>Throws</li>
+                                <li>Curtains & Blinds</li>
+                                <li>Rugs</li>
+                                <li>Carpets</li>
+                            </ul>
+                        </li>
+                        <li>Storage
+                            <ul>
+                                <!-- moving the UL to the next line will cause an IE7 problem -->
+                                <li>Wall Shelving</li>
+                                <li>Kids Storage</li>
+                                <li>Baskets</li>
+                                <li>Multimedia Storage</li>
+                                <li>Floor Shelving</li>
+                                <li>Toilet Roll Holders</li>
+                                <li>Storage Jars</li>
+                                <li>Drawers</li>
+                                <li>Boxes</li>
+                            </ul>
+
+                        </li>
+                        <li>Lights
+                            <ul>
+                                <!-- moving the UL to the next line will cause an IE7 problem -->
+                                <li>Ceiling</li>
+                                <li>Table</li>
+                                <li>Floor</li>
+                                <li>Shades</li>
+                                <li>Wall Lights</li>
+                                <li>Spotlights</li>
+                                <li>Push Light</li>
+                                <li>String Lights</li>
+                            </ul>
+                        </li>
+                    </ul>
+        </li>
+        <li>Stores
+                    <ul>
+                        <li>
+                            <div id="template" style="padding: 10px;">
+                                <h2>Around the Globe</h2>
+                                <ol>
+                                    <li>United States</li>
+                                    <li>Europe</li>
+                                    <li>Canada</li>
+                                    <li>Australia</li>
+                                </ol>
+                                <img src="../../content/web/menu/map.png" alt="Stores Around the Globe" />
+                                <button class="k-button">See full list</button>
+                            </div>
+                        </li>
+                    </ul>
+        </li>
+        <li>Blog
+        </li>
+        <li>Company
+        </li>
+        <li>Events
+        </li>
+        <li disabled="disabled">News
+        </li>
+    </ul>
+</div>
+<div class="demo-section">            
+    <div class="k-rtl">
+        <h2>USA STATES:</h2>
+        <input id="states" />
+
+         <input id="products" style="width: 250px" />
+    </div>
+</div>
+<div id="example" class="k-content">
+    <input id="LoadGrid" name="LoadGrid" type="button" value="Load Grid" />
+    <div id="grid"></div>
+</div>
+
+<style scoped>
+
+      #AjaxGrid{
+        display:none;
+    }
+      .demo-section {
+                    width: 250px;
+                    margin: 35px auto 50px;
+                    padding: 30px;
+                }
+                .demo-section h2 {
+                    text-transform: uppercase;
+                    font-size: 1.2em;
+                    margin-bottom: 10px;
+                }
+    #megaStore
+    {
+        width: 100%;
+        margin: 30px auto;
+        padding-top: 120px;
+    }
+
+    #menu h2
+    {
+        font-size: 1em;
+        text-transform: uppercase;
+        padding: 5px 10px;
+    }
+
+    #template img
+    {
+        margin: 5px 20px 0 0;
+        float: left;
+    }
+
+    #template
+    {
+        width: 380px;
+    }
+
+        #template ol
+        {
+            float: left;
+            margin: 0 0 0 30px;
+            padding: 10px 10px 0 10px;
+        }
+
+        #template:after
+        {
+            content: ".";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        #template .k-button
+        {
+            float: left;
+            clear: left;
+            margin: 5px 0 5px 12px;
+        }
+</style>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+
+            $("#LoadGrid").click(function () {
+                $("#grid").data("kendoGrid").dataSource.read();
+            });
+
+            var data = [
+                           "Alabama",
+                           "Alaska",
+                           "American Samoa",
+                           "Arizona",
+                           "Arkansas",
+                           "California",
+                           "Colorado",
+                           "Connecticut",
+                           "Delaware",
+                           "District of Columbia",
+                           "Florida",
+                           "Georgia",
+                           "Guam",
+                           "Hawaii",
+                           "Idaho",
+                           "Illinois",
+                           "Indiana",
+                           "Iowa",
+                           "Kansas",
+                           "Kentucky",
+                           "Louisiana",
+                           "Maine",
+                           "Maryland",
+                           "Massachusetts",
+                           "Michigan",
+                           "Minnesota",
+                           "Mississippi",
+                           "Missouri",
+                           "Montana",
+                           "Nebraska",
+                           "Nevada",
+                           "New Hampshire",
+                           "New Jersey",
+                           "New Mexico",
+                           "New York",
+                           "North Carolina",
+                           "North Dakota",
+                           "Northern Marianas Islands",
+                           "Ohio",
+                           "Oklahoma",
+                           "Oregon",
+                           "Pennsylvania",
+                           "Puerto Rico",
+                           "Rhode Island",
+                           "South Carolina",
+                           "South Dakota",
+                           "Tennessee",
+                           "Texas",
+                           "Utah",
+                           "Vermont",
+                           "Virginia",
+                           "Virgin Islands",
+                           "Washington",
+                           "West Virginia",
+                           "Wisconsin",
+                           "Wyoming"
+            ];
+
+            $("#states").kendoAutoComplete({
+                dataSource: data,
+                placeholder: "Select state..."
+            });
+
+            $("#grid").kendoGrid({
+                dataSource: {
+                    type: "odata",
+                    serverPaging: true,
+                    serverSorting: true,
+                    pageSize: 100,
+                    transport: {
+                        read: "http://demos.kendoui.com/service/Northwind.svc/Orders"
+                    }
+                },
+                height: 430,
+                scrollable: {
+                    virtual: true
+                },
+                sortable: true,
+                autoBind:false,
+                columns: [
+                    { field: "OrderID", title: "Order ID", width: 60 },
+                    { field: "CustomerID", title: "Customer ID", width: 90 },
+                    { field: "ShipName", title: "Ship Name", width: 220 },
+                    { field: "ShipAddress", title: "Ship Address", width: 280 },
+                    { field: "ShipCity", title: "Ship City", width: 110 },
+                    { field: "ShipCountry", title: "Ship Country", width: 110 }
+                ]
+            });
+
+          
+            $("#header_menu").kendoMenu({
+                select: onSelect,
+                open: onOpen,
+                close: onClose,
+                activate: onActivate,
+                deactivate: onDeactivate
+            });
+
+            function onOpen(e) {
+              //alert("Opened: " + $(e.item).children(".k-link").text());
+            }
+
+            function onClose(e) {
+                //alert("Closed: " + $(e.item).children(".k-link").text());
+            }
+
+            function onSelect(e) {
+                alert("Selected: " + $(e.item).children(".k-link").text());
+            }
+
+            function onActivate(e) {
+              //  alert("Activated: " + $(e.item).children(".k-link").text());
+            }
+
+            function onDeactivate(e) {
+                //alert("Deactivated: " + $(e.item).children(".k-link").text());
+            }
+
+            $("#products").kendoAutoComplete({
+                dataTextField: "ProductName",
+                filter: "contains",
+                minLength: 1,
+                dataSource: {
+                  //  type: "json",
+                    serverFiltering: true,
+                    serverPaging: true,
+                    pageSize: 20,
+                    transport: {
+                        read: "@Url.Action("Products", "Home")"
+                    }
+                }
+            });
+
+        });
+    </script>
+}
+
